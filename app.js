@@ -2,13 +2,21 @@ let selectNumero = document.querySelector(".numero")
 let pintaSup = document.querySelector(".pinta-superior-izqquiera")
 let pintaInf = document.querySelector(".pinta-inferior-derecha")
 
+// Agregando boton para generar nueva carta 
 
 const newButton = document.createElement("button");
 newButton.textContent = "Genera una nueva carta";
 document.body.appendChild(newButton);
-
 newButton.style.backgroundColor = "white"
 
+// Agregando boton que ejecuta un temporizador 
+
+const secondButton = document.createElement("button");
+secondButton.textContent = "Temporizador 10 segundos";
+document.body.appendChild(secondButton);
+secondButton.style.backgroundColor = "white"
+
+// addEventListener que genera carta al clickear boton
 
 newButton.addEventListener("click", function () {
     let numeroDeCarta = randomNumber();
@@ -23,6 +31,40 @@ newButton.addEventListener("click", function () {
     pintaInf.innerHTML = tipoDePinta
 
 });
+
+// addEventListener que ejecuta el temporizador al clickear boton
+
+secondButton.addEventListener("click", function () {
+    setTimeout(function () {
+        let numeroDeCarta = randomNumber();
+        let tipoDePinta = randomPinta();
+        let colorPintaParaCss = ifPinta(tipoDePinta)
+
+        pintaSup.style.color = colorPintaParaCss;
+        pintaInf.style.color = colorPintaParaCss;
+
+        selectNumero.innerHTML = numeroDeCarta
+        pintaSup.innerHTML = tipoDePinta
+        pintaInf.innerHTML = tipoDePinta
+    }, 10000);
+});
+
+// Modificar ancho y alto 
+
+let carta = document.querySelector(".carta");
+let userAncho = document.querySelector("#anchoUser");
+userAncho.addEventListener("change", function (e) {
+    let ancho = e.target.value
+    return carta.style.width = ancho + "px";
+})
+
+let userAlto = document.querySelector("#altoUser");
+userAlto.addEventListener("change", function (e) {
+    let alto = e.target.value
+    console.log(alto)
+    return carta.style.height = alto + "px";
+})
+
 
 
 function randomNumber() {
