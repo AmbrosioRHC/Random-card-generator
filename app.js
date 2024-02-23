@@ -2,6 +2,29 @@ let selectNumero = document.querySelector(".numero")
 let pintaSup = document.querySelector(".pinta-superior-izqquiera")
 let pintaInf = document.querySelector(".pinta-inferior-derecha")
 
+
+const newButton = document.createElement("button");
+newButton.textContent = "Genera una nueva carta";
+document.body.appendChild(newButton);
+
+newButton.style.backgroundColor = "white"
+
+
+newButton.addEventListener("click", function () {
+    let numeroDeCarta = randomNumber();
+    let tipoDePinta = randomPinta();
+    let colorPintaParaCss = ifPinta(tipoDePinta)
+
+    pintaSup.style.color = colorPintaParaCss;
+    pintaInf.style.color = colorPintaParaCss;
+
+    selectNumero.innerHTML = numeroDeCarta
+    pintaSup.innerHTML = tipoDePinta
+    pintaInf.innerHTML = tipoDePinta
+
+});
+
+
 function randomNumber() {
     let num = Math.floor(Math.random() * 13 + 1);
     if (num > 1 && num < 11) return num;
