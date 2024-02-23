@@ -1,0 +1,46 @@
+
+body {
+    background-color: green;
+}
+
+.carta{
+    border: solid;
+    border-width: 2px;
+    width: 400px;
+    height: 600px;
+    border-radius: 5%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    margin: auto;
+    display: flex;
+
+
+}
+
+.pinta-superior-izqquiera{
+    font-size:500%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.numero{
+    font-size:500%;
+    display: flex;
+    /* margin: auto; */
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    width: 100%;
+
+}
+
+.pinta-inferior-derecha{
+    font-size:500%;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;}
